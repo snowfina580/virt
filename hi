@@ -1,0 +1,169 @@
+Problem:
+
+sudo ip link set enp0s3 up
+sudo nano /etc/netplan/01-network-manager-all.yaml network:
+version: 2
+renderer: NetworkManager ethernets:
+enp0s3:
+dhcp4: true sudo netplan apply
+sudo nano /etc/NetworkManager/NetworkManager.conf sudo systemctl restart NetworkManager
+sudo dhclient -v enp0s3
+
+
+Exp 1:
+sudo useradd -m Nanthitha sudo passwd Nanthitha
+sudo usermod -aG sudo Nanthitha su - Nanthitha
+sudo deluser --remove-home Nanthitha pwd
+ls
+echo “hello” >> nan.txt grep “hello” nan
+df -h du -sh top date time
+touch file.txt head -n file.txt uname -a
+chmod 777 file.txt ls -l file.txt
+find . -name file.txt locate file.txt
+ 
+Exp2:
+
+sudo apt install default-jdk -y
+sudo apt install --reinstall java-wrappers sudo apt install --reinstall default-jdk Sudo ufw disable
+Sudo iptables -F
+
+Import java.util.Scanner System.nanoTime() System.out.printf("%.6f seconds\n", time);
+
+
+C pgm
+#include <time.h> Clock_t start=clock()
+(double)(et-st)/CLOCKS_PER_SEC
+
+Gcc -o mypgm file.c
+./mypgm
+
+
+Ep 5: kvm
+
+Egrep -c ‘lm’ /proc/cpuinfo Uname -a
+Ls /lib/modules/5.4.0-84-generic/kernel/arch/x86/kvm/kvm* Sudo apt-get install qemu-kvm libvirt-bin bridge-utils qemu-sys
+sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils qemu-system-x86
+
+Sudo nano /etc/libvirt/libvirtd.conf Grep ^[^#] /etc/libvirt/libvirtd.conf
+
+unix_sock_group=”libvirt” unix_sock_ro_perms=”0777” unix_sock_rm_perms=”0770” unix_sock_dir=”/var/run/libvirt” auth_unix_ro=”none”
+ 
+auth_unix_rw=”none”
+Sudo systemctl restart libvirtd Virsh list
+Virsh Version Nodeinfo
+Vm manager - qemu - new - import - https://download.cirros-cloud.net/0.5.1/
+
+
+
+Exp6: file transfer Auto-mount click ls /media
+ls /media/sf_VMShared
+sudo usermod -aG vboxsf $USER Sudo reboot
+ls /media/sf_VMShared VM1
+cat /media/sf_VMShared/file.txt touch vm1.txt
+cp vm1.txt /media/sf_VMShared VM2
+cat /media/sf_VMShared/vm1.txt
+
+nano /media/sf_VMShared/file.txt
+cp ~/my_code.java /media/sf_VMShared/ cp /media/sf_VMShared/my_code.java ~/ Ubuntu to kali:
+cp /home/osboxes/my_code.java /media/sf_VMShared/ cp /media/sf_VMShared/my_code.java /home/kali/
+Kali to ubuntu:
+cp /home/kali/notes.txt /media/sf_VMShared/
+
+cp /media/sf_VMShared/notes.txt /home/osboxes/
+
+Method 2:
+
+Ip -4 a Ip link
+ 
+Sudo dhclient eth0 Ip -4 a
+Sudo apt update
+Sudo apt install nfs-kernel-server -y Sudo mkdir -p /srv/nfs/nanfolder
+Sudo chown nobody:nogroup /srv/nfs/nanfolder Sudo chmod 777 /srv/nfs/nanfolder
+Sudo nano /etc/exports
+/srv/nfs/nanfolder <kali ip>(rw,sync,no_subtree_check,no_root_squash) Sudo exportfs -a
+Sudo systemctl restart nfs-kernel-server Sudo ufw allow from <kali ip> to any port nfs Kail:
+Sudo wget https://archive.kali.org/archive-keyring.gpg -0 /usr/share/keyrings/kali-archive-keyring.gpg
+Sudo apt update
+Sudo apt install nfs-common -y Sudo mkdir -p /mnt/nfs/nan
+Sudo mout <ubuntu ip>:/srv/nfs/nanfolder /mnt/nfs/nanfolder Df -h | grep nfs
+
+Ubuntu:
+Echo “Hello” | sudo tee /srv/nfs/nanfolder/ubuntu.txt Kali:
+Cat /mnt/nfs/nanfolder/ubuntu.txt
+
+Exp7: hyper -v Window:
+Get-VMSwitch
+New-Item -ItemType Directory -Path “C:\Hyper-V” -Force
+New-VM -Name “Nan” -MemoryStartupBytes 2GB -Generation 2 -NewVHDPath “C:\Hyper-V\Nan.vhdx” -NewVHDSizeBytes 30GB
+Connect-VMNetworkAdapter -VMName “Nan” -SwitchName “Default Switch” Add-VMDvdDrive -VMName “Nan” -Path “ ubuntu image path”
+Set-VMFirmware -VMName “Nan” -FirstBootDevice (Get-VMDvdDrive -VMName “Nan”) Get-VM -Name “Nan”
+Stop-VM -Name “Nan” Get-VM -Name “Nan”
+
+Exp8: open v switch Ifconfig
+Sudo apt-get install bridge-utils
+ 
+Sudo modprobe bridge Sudo modprobe br_netfilter
+Sudo apt install openvswitch-switch -y Sudo apt status openvswitch-switch
+
+Sudo nano /ect/netplan/01-netcfg.yaml Network:
+Version: 2 Renderer: networkd Ethernets:
+Eno2:
+Dhcp4: no
+bridges:
+Br-cloud:
+Interfaces:[eno2] Addresses:[] Gateway4:
+Nameservers:
+Addresses:[8.8.8.8,1.1.1.1]
+Sudo systemctl restart NetworkManager Ip a
+Route -n Brctl show
+
+Sudo brctl addbr br-cloud
+Sudo brctl addif br-cloud-new enp0s3 Ifconfig enp0s3
+Sudo Ifconfig br-cloud-new 10.0.2.15 netmask 255.255.255.0 Sudo Route add default gw 10.0.2.15 dev br-cloud-new
+
+Sudo -s
+Ip netns add VRF1 Ip netns add VRF2 Ip netns list
+
+Ip link add veth1 type veth peer name veth2 Ip link show
+Ip netns exec VRF1 ip link show Ip link set veth1 netns VRF1
+Ip link set veth3 netns VRF2 Ip netns exec VRF1 ip link
+Ip netns exec VRF1 ifconfig veth1 10.10.10.1/24 up Ip netns exec VRF2 ifconfig veth3 10.10.10.2/24 up Ip netns exec VRF2 ifconfig
+ 
+Ip netns exec VRF1 ifconfig
+
+Sudo systemctl start openvswitch-switch Sudo systemctl enable openvswitch-switch Ovs-vsctl add-br vSwitch1
+Ovs-vsctl show
+Ovs-vsctl add-port vSwitch1 veth4
+Ovs-vsctl set bridge vSwitch1 stp_enable=true Ovs-appctl fdb/show vSwitch1
+
+Exp9:
+Sudo ip link set enp0s3 Sudo dhclient enp0s3 Ip a
+Sudo apt update Sudo apt upgrade -y
+Sudo apt install -y git curl wget net-tools iproute2
+Sudo adduser –shell /bin/bash/ –home /opt/stack stack
+Echo “stack ALL=(ALL) NOPASSWD: ALL” | sudo tee /etc/sudoers.d/stack Sudo chmod 0440 /etc/sudoers.d/stack
+Sudo su - stack
+Git clone https://git.openstack.org/opnstack/devstack Cd devstack
+Nano local.conf
+Ip route get 1.1.1.1 | awk ‘{print $7}’ - not in /devstack
+
+[[local|localrc]] ADMIN_PASSWORD=dtuk2004
+DATABASE_PASSWORD=$ADMIN_PASSWORD RABBIT_PASSWORD=$ADMIN_PASSWORD SERVICE_PASSWORD=$ADMIN_PASSWORD
+DEST=/opt/stack HOST_IP=10.0.2.15
+
+Cd devstack
+Export FORCE=yes
+./stack.sh http://localhost:8080/dashboard
+
+Exp10:
+Win+r
+Diskmgmt.msc Sudo -s
+Fdisk -l
+ 
+Pvcreate /dev/sdb and sdc
+Vgcreate Nan /dev/sdb and Nana sdc Pvdisplay
+Vgdisplay
+Lvcreate -l 100%FREE -n my_lv Nan Lvdisplay
+Vgextend Nan /dev/sdc Lvdisplay
+Lvresize - -size +3G /dev/Nan/my_lv Df -h
+Resize2fs /dev/sda1 Df -h
